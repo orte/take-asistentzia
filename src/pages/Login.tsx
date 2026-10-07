@@ -45,12 +45,15 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-dvh flex items-center justify-center bg-slate-50 px-4">
+    <main className="min-h-dvh flex items-center justify-center bg-gradient-to-b from-brand-dark to-brand px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm bg-white rounded-xl border border-slate-200 p-6 flex flex-col gap-4"
+        className="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 flex flex-col gap-4"
       >
-        <h1 className="text-xl font-bold text-slate-900">{eu.appName}</h1>
+        <div className="flex flex-col items-center gap-2 text-center">
+          <img src="/take-logo.png" alt="TAKE" className="h-20 w-20 object-contain" />
+          <h1 className="text-lg font-bold text-slate-900">{eu.appName}</h1>
+        </div>
 
         <label className="flex flex-col gap-1">
           <span className="text-sm font-medium text-slate-700">
@@ -62,7 +65,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             autoFocus
             autoComplete="current-password"
-            className="rounded-lg border border-slate-300 px-3 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-slate-900"
+            className="rounded-lg border border-slate-300 px-3 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-brand"
           />
         </label>
 
@@ -75,7 +78,7 @@ export default function Login() {
         <button
           type="submit"
           disabled={submitting || password.length === 0}
-          className="rounded-lg bg-slate-900 text-white font-semibold py-2.5 disabled:opacity-50"
+          className="rounded-lg bg-brand text-white font-semibold py-2.5 hover:bg-brand-dark disabled:opacity-50"
         >
           {submitting ? eu.auth.loggingIn : eu.auth.login}
         </button>

@@ -20,10 +20,15 @@ export default function Layout() {
 
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 text-slate-900">
-      <header className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between gap-4">
-          <NavLink to="/sarrera" className="font-bold text-slate-900">
-            TAKE
+      <header className="bg-brand-dark text-white">
+        <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
+          <NavLink to="/sarrera" className="flex items-center gap-2">
+            <img
+              src="/take-logo.png"
+              alt=""
+              className="h-9 w-9 rounded-full bg-white object-contain p-0.5"
+            />
+            <span className="font-bold tracking-wide">TAKE</span>
           </NavLink>
           <nav className="flex items-center gap-1 text-sm">
             {links.map((link) => (
@@ -33,8 +38,8 @@ export default function Layout() {
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md font-medium ${
                     isActive
-                      ? 'bg-slate-900 text-white'
-                      : 'text-slate-600 hover:bg-slate-100'
+                      ? 'bg-brand text-white'
+                      : 'text-white/70 hover:bg-white/10'
                   }`
                 }
               >
@@ -44,7 +49,7 @@ export default function Layout() {
             <button
               type="button"
               onClick={handleLogout}
-              className="px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-100"
+              className="px-3 py-2 rounded-md font-medium text-white/70 hover:bg-white/10"
             >
               {eu.nav.logout}
             </button>

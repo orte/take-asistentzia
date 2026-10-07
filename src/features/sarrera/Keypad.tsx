@@ -52,7 +52,7 @@ export default function Keypad({ onDigit, onDelete, onSubmit, disabled }: Keypad
         type="button"
         disabled={disabled}
         onClick={onSubmit}
-        className="h-16 rounded-xl bg-slate-900 text-white text-2xl font-bold active:bg-slate-700 disabled:opacity-40 select-none"
+        className="h-16 rounded-xl bg-brand text-white text-2xl font-bold active:bg-brand-dark disabled:opacity-40 select-none"
         aria-label={eu.sarrera.ok}
       >
         {eu.sarrera.ok}

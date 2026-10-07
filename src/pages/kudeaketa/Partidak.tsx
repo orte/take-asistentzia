@@ -91,7 +91,7 @@ export default function Partidak() {
           <button
             type="button"
             onClick={() => setEditing({ mode: 'new' })}
-            className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2 text-sm"
+            className="rounded-lg bg-brand text-white font-semibold px-4 py-2 text-sm"
           >
             {eu.kudeaketa.newMatch}
           </button>

@@ -110,7 +110,7 @@ export default function MatchForm({ initial, title, onSubmit, onClose }: MatchFo
           <button
             type="submit"
             disabled={saving}
-            className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2 disabled:opacity-50"
+            className="rounded-lg bg-brand text-white font-semibold px-4 py-2 disabled:opacity-50"
           >
             {eu.common.save}
           </button>

@@ -73,7 +73,7 @@ export default function MatchSelector({
             <button
               type="submit"
               disabled={creating || opponent.trim().length === 0}
-              className="rounded-lg bg-slate-900 text-white font-semibold px-4 disabled:opacity-50"
+              className="rounded-lg bg-brand text-white font-semibold px-4 disabled:opacity-50"
             >
               {eu.common.save}
             </button>

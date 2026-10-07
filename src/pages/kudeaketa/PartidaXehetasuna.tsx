@@ -131,7 +131,7 @@ export default function PartidaXehetasuna() {
         </label>
         <button
           type="submit"
-          className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2"
+          className="rounded-lg bg-brand text-white font-semibold px-4 py-2"
         >
           {eu.kudeaketa.add}
         </button>

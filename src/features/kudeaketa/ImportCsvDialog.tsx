@@ -124,7 +124,7 @@ export default function ImportCsvDialog({ existing, onClose, onApplied }: Import
             type="button"
             onClick={handleApply}
             disabled={applying || applicable === 0}
-            className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2 disabled:opacity-50"
+            className="rounded-lg bg-brand text-white font-semibold px-4 py-2 disabled:opacity-50"
           >
             {applying ? eu.kudeaketa.applying : `${eu.kudeaketa.apply} (${applicable})`}
           </button>
