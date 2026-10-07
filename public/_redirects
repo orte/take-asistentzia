@@ -1,0 +1,4 @@
+# Fallback de SPA para Cloudflare Pages: las rutas de React Router (p. ej.
+# /sarrera, /kudeaketa/...) se sirven con index.html. Los ficheros estáticos
+# que existen (assets) tienen prioridad y no pasan por aquí.
+/*    /index.html   200
