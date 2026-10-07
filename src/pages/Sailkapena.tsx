@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { eu } from '../i18n/eu'
 import { madridDateString } from '../lib/datetime'
 import { fetchRanking, fetchSeasons } from '../lib/ranking'
@@ -7,8 +6,8 @@ import { seasonForDate } from '../lib/season'
 import { normalizeText } from '../lib/text'
 import type { RankingRow } from '../types/database'
 
-// Ranking público (PLAN §7.2). Vista limpia, sin enlaces a zonas protegidas
-// más allá del acceso discreto al login del pie.
+// Ranking por temporada (PLAN §7.2). Ruta protegida: accesible tras iniciar
+// sesión, dentro del layout de gestión.
 export default function Sailkapena() {
   const [phase, setPhase] = useState<'loading' | 'ready' | 'error'>('loading')
   const [seasons, setSeasons] = useState<string[]>([])
@@ -70,18 +69,14 @@ export default function Sailkapena() {
   }, [ranking, query])
 
   return (
-    <div className="min-h-dvh flex flex-col bg-slate-50 text-slate-900">
-      <main className="flex-1 mx-auto w-full max-w-3xl px-4 py-8 flex flex-col gap-5">
-        <header className="flex flex-col gap-1">
-          <p className="text-sm text-slate-400">{eu.appName}</p>
-          <h1 className="text-3xl font-bold">{eu.sailkapena.title}</h1>
-        </header>
+    <section className="flex flex-col gap-5">
+      <h1 className="text-2xl font-bold">{eu.sailkapena.title}</h1>
 
-        {phase === 'loading' && <p className="text-slate-500">{eu.common.loading}</p>}
-        {phase === 'error' && <p className="text-red-600">{eu.common.error}</p>}
+      {phase === 'loading' && <p className="text-slate-500">{eu.common.loading}</p>}
+      {phase === 'error' && <p className="text-red-600">{eu.common.error}</p>}
 
-        {phase === 'ready' && (
-          <>
+      {phase === 'ready' && (
+        <>
             <div className="flex flex-wrap items-center gap-3">
               {seasons.length > 0 && season && (
                 <label className="flex items-center gap-2 text-sm">
@@ -138,14 +133,7 @@ export default function Sailkapena() {
               </div>
             )}
           </>
-        )}
-      </main>
-
-      <footer className="py-4 text-center">
-        <Link to="/login" className="text-xs text-slate-400 hover:text-slate-600">
-          ·
-        </Link>
-      </footer>
-    </div>
+      )}
+    </section>
   )
 }

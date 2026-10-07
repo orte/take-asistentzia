@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthProvider } from './auth/AuthProvider'
 import Layout from './components/Layout'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -15,13 +15,14 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          {/* Públicas */}
-          <Route path="/" element={<Sailkapena />} />
+          {/* Pública: la entrada manda al login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
 
           {/* Protegidas: sesión + layout con navegación */}
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
+              <Route path="/sailkapena" element={<Sailkapena />} />
               <Route path="/sarrera" element={<Sarrera />} />
               <Route path="/kudeaketa/bazkideak" element={<Bazkideak />} />
               <Route path="/kudeaketa/partidak" element={<Partidak />} />

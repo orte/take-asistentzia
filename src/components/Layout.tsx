@@ -4,6 +4,7 @@ import { eu } from '../i18n/eu'
 
 const links = [
   { to: '/sarrera', label: eu.nav.sarrera },
+  { to: '/sailkapena', label: eu.nav.sailkapena },
   { to: '/kudeaketa/partidak', label: eu.nav.partidak },
   { to: '/kudeaketa/bazkideak', label: eu.nav.bazkideak },
 ]
