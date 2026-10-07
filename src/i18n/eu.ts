@@ -1,0 +1,127 @@
+// Textos de la interfaz, todos en euskera y en un único sitio (PLAN §8).
+// Los identificadores de las claves van en inglés; los valores en euskera.
+// No se usa librería de i18n: es un objeto plano importado donde haga falta.
+
+export const eu = {
+  appName: 'TAKE – Bazkideen asistentzia',
+
+  common: {
+    ok: 'Ados',
+    save: 'Gorde',
+    cancel: 'Utzi',
+    delete: 'Ezabatu',
+    confirm: 'Ziur zaude?',
+    search: 'Bilatu',
+    loading: 'Kargatzen…',
+    error: 'Errorea gertatu da',
+    retry: 'Saiatu berriro',
+    close: 'Itxi',
+    yes: 'Bai',
+    no: 'Ez',
+  },
+
+  nav: {
+    sarrera: 'Sarrera',
+    sailkapena: 'Sailkapena',
+    kudeaketa: 'Kudeaketa',
+    bazkideak: 'Bazkideak',
+    partidak: 'Partidak',
+    logout: 'Irten',
+  },
+
+  auth: {
+    password: 'Pasahitza',
+    login: 'Sartu',
+    wrongPassword: 'Pasahitz okerra',
+    loggingIn: 'Sartzen…',
+  },
+
+  sailkapena: {
+    title: 'Sailkapena',
+    season: 'Denboraldia',
+    position: 'Postua',
+    memberNumber: 'Bazkide zenbakia',
+    name: 'Izena',
+    attended: 'Bertaratuak',
+    total: 'Guztira',
+    searchPlaceholder: 'Bilatu izenez edo zenbakiz',
+    empty: 'Oraindik ez dago daturik',
+  },
+
+  sarrera: {
+    title: 'Sarrera',
+    todayMatch: 'Gaurko partida',
+    noMatchToday: 'Gaur ez dago partidarik',
+    createMatch: 'Sortu partida',
+    selectMatch: 'Aukeratu partida',
+    changeMatch: 'Aldatu',
+    otherMatches: 'Beste partidak',
+    opponent: 'Aurkaria',
+    date: 'Data',
+    registered: 'Ongi etorri!',
+    alreadyRegistered: 'Dagoeneko erregistratuta',
+    previousRegistration: 'Aurretik',
+    unknownNumber: 'Zenbaki hori ez da existitzen',
+    inactiveMember: 'Bazkidea ez dago aktibo',
+    searchByName: 'Bilatu izenez',
+    attendees: 'Bertaratuak',
+    lastRegistrations: 'Azken erregistroak',
+    noRegistrations: 'Oraindik erregistrorik ez',
+    undo: 'Desegin',
+    pendingSync: 'Sinkronizatzeke',
+    deviceLabel: 'Atearen etiketa',
+    ok: 'Ados',
+    delete: 'Ezabatu',
+  },
+
+  kudeaketa: {
+    title: 'Kudeaketa',
+    // Bazkideak
+    members: 'Bazkideak',
+    newMember: 'Bazkide berria',
+    memberNumber: 'Bazkide zenbakia',
+    name: 'Izena',
+    active: 'Aktibo',
+    edit: 'Editatu',
+    activate: 'Aktibatu',
+    deactivate: 'Desaktibatu',
+    duplicateNumber: 'Zenbaki hori badago jada',
+    membersCount: 'Bazkideak guztira',
+    // Importación CSV
+    importCsv: 'Inportatu CSVa',
+    exportCsv: 'Esportatu CSVa',
+    chooseFile: 'Aukeratu fitxategia',
+    preview: 'Aurrebista',
+    csvNew: 'Berriak',
+    csvRenamed: 'Izen-aldaketak',
+    csvUnchanged: 'Aldaketarik gabe',
+    csvErrors: 'Erroreak',
+    apply: 'Aplikatu',
+    line: 'Lerroa',
+    applying: 'Aplikatzen…',
+    // Partidak
+    matches: 'Partidak',
+    newMatch: 'Partida berria',
+    editMatch: 'Editatu partida',
+    season: 'Denboraldia',
+    opponent: 'Aurkaria',
+    date: 'Data',
+    attendees: 'Bertaratuak',
+    noMatches: 'Ez dago partidarik',
+    deleteMatchConfirm: 'Partida eta bere erregistro guztiak ezabatuko dira. Ziur?',
+    // Detalle de partido
+    attendeeList: 'Bertaratuen zerrenda',
+    noAttendees: 'Oraindik bertaraturik ez',
+    time: 'Ordua',
+    device: 'Gailua',
+    addAttendee: 'Gehitu bazkidea',
+    add: 'Gehitu',
+    remove: 'Kendu',
+    backToMatches: '← Partidetara',
+  },
+
+  notFound: {
+    title: 'Orria ez da aurkitu',
+    back: 'Itzuli hasierara',
+  },
+} as const
