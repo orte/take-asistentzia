@@ -13,6 +13,7 @@ import {
   type MatchWithCount,
 } from '../../features/kudeaketa/api'
 import MatchForm from '../../features/kudeaketa/MatchForm'
+import ImportMatchesCsvDialog from '../../features/kudeaketa/ImportMatchesCsvDialog'
 
 type Editing = { mode: 'new' } | { mode: 'edit'; match: Match } | null
 
@@ -21,6 +22,7 @@ export default function Partidak() {
   const [matches, setMatches] = useState<MatchWithCount[]>([])
   const [editing, setEditing] = useState<Editing>(null)
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
+  const [importing, setImporting] = useState(false)
 
   async function load() {
     try {
@@ -78,13 +80,22 @@ export default function Partidak() {
     <section className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-3">
         <h1 className="text-2xl font-bold">{eu.kudeaketa.matches}</h1>
-        <button
-          type="button"
-          onClick={() => setEditing({ mode: 'new' })}
-          className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2 text-sm"
-        >
-          {eu.kudeaketa.newMatch}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setImporting(true)}
+            className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:bg-slate-50"
+          >
+            {eu.kudeaketa.importCsv}
+          </button>
+          <button
+            type="button"
+            onClick={() => setEditing({ mode: 'new' })}
+            className="rounded-lg bg-slate-900 text-white font-semibold px-4 py-2 text-sm"
+          >
+            {eu.kudeaketa.newMatch}
+          </button>
+        </div>
       </div>
 
       {matches.length === 0 ? (
@@ -168,6 +179,14 @@ export default function Partidak() {
             }
             await load()
           }}
+        />
+      )}
+
+      {importing && (
+        <ImportMatchesCsvDialog
+          existing={matches}
+          onClose={() => setImporting(false)}
+          onApplied={() => void load()}
         />
       )}
     </section>

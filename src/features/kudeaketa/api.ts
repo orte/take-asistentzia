@@ -95,6 +95,17 @@ export async function createMatch(input: {
   return data
 }
 
+// Alta en bloque del calendario (importación CSV de partidos).
+export async function insertMatches(
+  rows: Array<{ season: string; matchDate: string; opponent: string }>,
+): Promise<void> {
+  if (rows.length === 0) return
+  const { error } = await supabase
+    .from('matches')
+    .insert(rows.map((r) => ({ season: r.season, match_date: r.matchDate, opponent: r.opponent })))
+  if (error) throw new Error(error.message)
+}
+
 export async function updateMatch(
   id: string,
   input: { season: string; matchDate: string; opponent: string },

@@ -114,6 +114,11 @@ pantalla grande. Desde **Kudeaketa** se gestionan socios (alta, edición,
 importación CSV), partidos y correcciones, y se exportan CSV (ranking de una
 temporada y asistencias de un partido) listos para Excel.
 
+El calendario de partidos también se puede cargar de golpe desde **Partidak →
+Inportatu egutegia (CSV)**, con tres columnas: `Denboraldia`, `Aurkaria`, `Data`
+(fecha en `AAAA-HH-EE` o `EE/HH/AAAA`). La vista previa distingue los partidos
+nuevos de los que ya existen, así que reimportar el mismo fichero no los duplica.
+
 ## Estado
 
 Completo (Fases 0–6 de `PLAN.md`).

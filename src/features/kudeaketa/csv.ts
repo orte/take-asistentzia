@@ -40,21 +40,26 @@ export const CSV_REASON = {
 
 // Delimitador a partir de la primera línea (estructural): `;` o `,`.
 // Más fiable que la autodetección de PapaParse, que una fila malformada engaña.
-function detectDelimiter(text: string): ';' | ',' {
+export function detectDelimiter(text: string): ';' | ',' {
   const firstLine = text.split(/\r?\n/, 1)[0] ?? ''
   const semicolons = firstLine.split(';').length - 1
   const commas = firstLine.split(',').length - 1
   return semicolons > commas ? ';' : ','
 }
 
-export function parseMembersCsv(text: string): CsvParseResult {
-  // Quita el BOM (U+FEFF) si lo hubiera.
+// Lectura base de un CSV a filas de celdas: quita el BOM (U+FEFF) y aplica el
+// delimitador detectado. Compartida por la importación de socios y de partidos.
+export function parseCsvToRows(text: string): string[][] {
   const clean = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text
   const parsed = Papa.parse<string[]>(clean, {
     delimiter: detectDelimiter(clean),
     skipEmptyLines: true,
   })
-  const data = parsed.data
+  return parsed.data
+}
+
+export function parseMembersCsv(text: string): CsvParseResult {
+  const data = parseCsvToRows(text)
 
   const rows: ParsedMemberRow[] = []
   const errors: CsvRowError[] = []
